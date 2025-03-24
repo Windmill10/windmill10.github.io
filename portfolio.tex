@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper]{article}
+
+% Document setup and packages
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{CJKutf8}
+\usepackage{array}
+\usepackage{tabularx}
+
+% Color definitions
+\definecolor{primary}{RGB}{79, 134, 247}
+\definecolor{light}{RGB}{110, 165, 255}
+\definecolor{dark}{RGB}{30, 41, 59}
+\definecolor{text}{RGB}{51, 65, 85}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    urlcolor=primary,
+    linkcolor=primary
+}
+
+% Title formatting
+\titleformat{\section}
+  {\Large\bfseries\color{primary}}
+  {}{0em}
+  {}
+  [\titlerule]
+  
+\titleformat{\subsection}
+  {\bfseries\color{dark}}
+  {}{0em}
+  {}
+
+% Custom command for project title
+\newcommand{\project}[1]{{\large\bfseries #1}}
+
+% Custom command for skills
+\newcommand{\skill}[2]{
+  \textbf{#1} & #2 \\
+}
+
+% Begin document
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+
+% Header with name and contact information
+\begin{center}
+    {\Huge\color{primary}\textbf{李聿宸} (Yu Chen Lee)}\\[0.3cm]
+    {\large Computer Science Student at National Tsing Hua University}\\[0.3cm]
+    
+    \begin{tabular}{cc}
+        \faEnvelope\ \href{mailto:eason.yuchen.lee@gmail.com}{eason.yuchen.lee@gmail.com} & 
+        \faPhone\ +886 903-719-328 \\[0.15cm]
+        \faGithub\ \href{https://github.com/Windmill10}{github.com/Windmill10} &
+        \faLinkedin\ \href{https://linkedin.com/in/yuchen-lee-47a892356}{yuchen-lee-47a892356}
+    \end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+% About me section
+\section{About Me}
+Computer Science student with a strong foundation in systems development, machine learning, and hardware programming. At NTHU, I've developed skills ranging from low-level hardware programming to high-level application development. I enjoy tackling technical challenges and implementing creative solutions. Currently focused on mobile application development, machine learning, and web technologies. I am seeking an opportunity with LINE's Tech Fresh program to contribute my technical skills while gaining valuable industry experience.
+
+% Education section
+\section{Education}
+\textbf{National Tsing Hua University}, Hsinchu, Taiwan \hfill \textit{Expected June 2027}\\
+Bachelor of Science in Computer Science \hfill GPA: 3.89/4.30\\
+\textit{Relevant Coursework:} Data Structures, Algorithms, Machine Learning, Web Development
+
+% Technical skills section
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\skill{Programming Languages}{C++ (Advanced), C, Python (Intermediate), Rust, Verilog, HTML/CSS (Familiar)}\\[0.2cm]
+\skill{Frontend Development}{React.js, HTML5, CSS3, Streamlit}\\[0.2cm]
+\skill{Machine Learning \& AI}{PyTorch, Diffusion Models, HuggingFace models, Audio processing (librosa, torchaudio)}\\[0.2cm]
+\skill{Hardware Development}{FPGA Programming, SystemVerilog HDL, Xilinx Vivado, State machine architecture}\\[0.2cm]
+\skill{API \& Integration}{RESTful API integration, OAuth authentication, Spotify Web API}\\[0.2cm]
+\skill{DevOps \& Tools}{Git/GitHub, Anaconda, Linux, Terminal UI development}
+\end{tabularx}
+
+% Projects section
+\section{Featured Projects}
+
+\project{Bird Vocalization Generation Using Diffusion Models} \hfill \textit{Sep 2024 - Dec 2024}
+
+\textit{A group machine learning course project that generates realistic bird vocalizations using advanced generative models.}
+\begin{itemize}[leftmargin=*]
+    \item Implemented data preprocessing pipeline and integrated HuggingFace sound recognition models
+    \item Designed model pipeline, trained diffusion models, and handled inference/audio post-processing
+    \item Led technical demonstration and delivered final project presentation to faculty panel
+    \item \textbf{Technologies:} Python, PyTorch, Streamlit, librosa, torchaudio
+    \item \textbf{Link:} \href{https://github.com/Windmill10/ML_diffusion}{github.com/Windmill10/ML\_diffusion}
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent\project{Spotify CLI} \hfill \textit{Nov 2022 - Feb 2023}
+\vspace{0.3cm}
+
+\textit{A command-line interface for Spotify built from scratch in Rust, enabling efficient daily music management without leaving the terminal.}
+\begin{itemize}[leftmargin=*]
+    \item Developed a terminal-based Spotify client with search, playback, and playlist management
+    \item Implemented OAuth token refresh mechanism for seamless Spotify API integration
+    \item Built responsive terminal UI with async operations for improved user experience
+    \item \textbf{Technologies:} Rust, Spotify Web API, Terminal UI libraries
+    \item \textbf{Link:} \href{https://github.com/Windmill10/Spotify_API_2}{github.com/Windmill10/Spotify\_API\_2}
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent\project{Slapjack Card Game on FPGA} \hfill \textit{Sep 2024 - Dec 2024}
+\vspace{0.3cm}
+
+\textit{Digital version of the Slapjack card game on dual FPGA boards, demonstrating hardware design skills and real-time systems development.}
+\begin{itemize}[leftmargin=*]
+    \item Designed and implemented multiplayer game on dual FPGA boards with custom protocols
+    \item Created state machine architecture for game logic with different difficulty levels
+    \item Developed VGA controller for graphical output and custom 8-bit music synthesizer
+    \item \textbf{Technologies:} SystemVerilog HDL, Xilinx Vivado, Python
+    \item \textbf{Link:} \href{https://github.com/Windmill10/HD_projects}{github.com/Windmill10/HD\_projects}
+\end{itemize}
+
+% Achievements section
+\section{Achievements \& Certifications}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Academic Excellence:} A+ in Introduction to Programming II and Competitive Programming
+    \item \textbf{Strong Performance:} A in Logic Design, Data Structures, Machine Learning
+    \item \textbf{TOEIC 965} - Test of English for International Communication (2021)
+\end{itemize}
+
+% Extracurricular Activities
+\section{Leadership \& Extracurricular Activities}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+    \textbf{HackMeiChu} & Development Team (2025) - Vue frontend development for event website \\[0.2cm]
+    \textbf{DIGITIMES Hackathon} & Attendee (2025)
+\end{tabularx}
+
+% Languages section
+\section{Languages}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+    \textbf{Mandarin Chinese} & Native \\[0.2cm]
+    \textbf{English} & Professional Working Proficiency (TOEIC 965)
+\end{tabularx}
+
+% Interests section
+\section{Interests}
+Competitive programming, mini-app development, algorithmic problem-solving, quantitative finance, music production
+
+\vspace{0.5cm}
+\begin{center}
+\textit{\color{dark}References available upon request}
+\end{center}
+
+\end{CJK}
+\end{document}
