@@ -1,330 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李聿宸 - Software Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuchen Lee (李聿宸)</title>
+<meta name="description" content="Yuchen Lee is a computer science senior at National Tsing Hua University working on diversity loss in LLMs trained with reinforcement learning and on storage systems for LLM serving.">
+<meta property="og:title" content="Yuchen Lee (李聿宸)">
+<meta property="og:description" content="Computer science senior at National Tsing Hua University. Research on diversity loss under reinforcement learning and on storage for LLM serving.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://windmill10.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f2a8c'%3E%3Cpath d='M12 12V1.5l7 7z'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(90 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(180 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(270 12 12)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="header-left">
-            </div>
-            <div class="header-right">
-                <h1 class="animated-text">李聿宸 (Yu Chen Lee)</h1>
-                <p class="subtitle">Computer Science Student at National Tsing Hua University</p>
-                <p class="tagline">Passionate, Curious and Versatile</p>
-                
-                <div class="contact-buttons">
-                    <a href="mailto:eason.yuchen.lee@gmail.com" class="contact-btn email-btn">
-                        <i class="fas fa-envelope"></i> <span>Email Me</span>
-                    </a>
-                    <a href="tel:+886903719328" class="contact-btn phone-btn">
-                        <i class="fas fa-phone"></i> <span>Call</span>
-                    </a>
-                </div>
-                
-                <div class="social-icons">
-                    <a href="https://github.com/Windmill10" target="_blank" class="social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/yuchen-lee-47a892356" target="_blank" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://www.instagram.com/easonlee630/" target="_blank" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+<header class="top">
+  <div class="wrap top-inner">
+    <h1 class="name">
+      <a href="#" aria-label="Yuchen Lee, back to top">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path id="blade" d="M12 12V1.5l7 7z"/>
+          <use href="#blade" transform="rotate(90 12 12)"/>
+          <use href="#blade" transform="rotate(180 12 12)"/>
+          <use href="#blade" transform="rotate(270 12 12)"/>
+        </svg>Yuchen Lee</a>
+      <span class="name-zh" lang="zh-Hant">李聿宸</span>
+    </h1>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publication">Publication</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-    
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a Computer Science student at NTHU with a strong technical foundation in software development, machine learning, and hardware design. I have demonstrated my ability to build efficient systems through projects like the Spotify CLI built in Rust and an FPGA card game implementation. I am seeking a LINE Tech Fresh internship to apply my full-stack expertise to innovative mobile applications.
-                </p>
-        </div>
-    </section>
+  </div>
+</header>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li><span class="highlight">Advanced:</span> C++</li>
-                        <li><span class="highlight">Intermediate:</span> C, Python</li>
-                        <li><span class="highlight">Familiar:</span> Rust, Verilog, HTML/CSS</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <ul>
-                        <li>React.js, HTML5, CSS3</li>
-                        <li>Streamlit</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
-                    <ul>
-                        <li>PyTorch</li>
-                        <li>Diffusion Models</li>
-                        <li>HuggingFace models</li>
-                        <li>Audio processing (librosa, torchaudio)</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Hardware Development</h3>
-                    <ul>
-                        <li>FPGA Programming</li>
-                        <li>SystemVerilog HDL</li>
-                        <li>Xilinx Vivado</li>
-                        <li>State machine architecture</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>API & Integration</h3>
-                    <ul>
-                        <li>RESTful API integration</li>
-                        <li>OAuth authentication</li>
-                        <li>Spotify Web API</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>DevOps & Tools</h3>
-                    <ul>
-                        <li>Git/GitHub</li>
-                        <li>Anaconda</li>
-                        <li>Linux</li>
-                        <li>Terminal UI development</li>
-                    </ul>
-                </div>
-            </div>
+<main class="wrap">
+
+  <div class="hero">
+    <p class="question q1">Why do language models trained with reinforcement learning lose the diversity of their outputs?</p>
+    <p class="question q2">And how should storage be built for the short-lived data that serving them produces?</p>
+  </div>
+
+  <div class="intro">
+    <p>I am Yuchen Lee, and I go by Eason. I am a senior in computer science at National Tsing Hua University in Hsinchu, Taiwan. I study the first question in Prof. Shan-Hung Wu's DATALAB. The second grew out of Prof. Yun-Chih Chen's storage systems class and became a first-author paper accepted at <span class="nb">ASP-DAC 2027</span>.</p>
+  </div>
+
+  <section class="band" id="research" aria-labelledby="h-research">
+    <h2 id="h-research">Research</h2>
+    <div class="entries">
+
+      <article class="entry has-fig" id="diversity">
+        <div class="entry-body">
+          <h3>Diversity loss under reinforcement learning</h3>
+          <p class="meta"><span>NTHU DATALAB, advised by Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
+          <p>Our project aims to make LLMs write more engaging stories, and I am responsible for the RL part. My first attempt, a reward model trained on reader votes from Wattpad, performed no better than chance. An analysis showed that 89% of the variance in vote rate lay between stories, reflecting author, genre and popularity. I next asked why LLMs overuse certain words. Comparing checkpoints of OLMo-2 7B across its training stages, I found that this vocabulary is absent in the base model and enters with the supervised fine-tuning data.</p>
+          <p>I therefore trained the Qwen2.5-1.5B base model with RL on verifiable rewards from math, coding and instruction-following tasks alone, with no fine-tuning data and no reward for stories. The model learned to write valid stories, and an LLM judge rated them on par with the official Instruct model, but their openings became concentrated. To explain this I extended a known policy-gradient analysis. When a reward cannot distinguish between outputs that are equally correct, the output that is already more probable receives the larger update. The loss of diversity under RL is the problem I most want to work on.</p>
         </div>
-    </section>
-    
-    <section id="education" class="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>National Tsing Hua University</h3>
-                <p><strong>Bachelor of Science in Computer Science</strong> | Expected June 2027</p>
-                <p>GPA: 3.89/4.30</p>
-                <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Web Development</p>
+        <figure class="fig">
+          <p class="fig-title">Qwen2.5-1.5B base model, before and after RL</p>
+          <div class="dumbbell" style="--a:12; --b:91">
+            <p class="row-label">Share of valid stories</p>
+            <div class="track" role="img" aria-label="12% for the base model, 91% after RL">
+              <span class="link"></span>
+              <span class="dot dot-a"><span class="val">12%</span></span>
+              <span class="dot dot-b"><span class="val">91%</span></span>
             </div>
-        </div>
-    </section>
-    
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Bird Vocalization Generation Using Diffusion Models</h3>
-                        <p class="project-date">Sep 2024 - Dec 2024</p>
-                        <p>A group machine learning course project that generates realistic bird vocalizations using advanced generative models.</p>
-                        <div class="project-details">
-                            <h4>Contributions:</h4>
-                            <ul>
-                                <li>Implemented data preprocessing pipeline</li>
-                                <li>Integrated HuggingFace sound recognition models</li>
-                                <li>Model pipeline design and training</li>
-                                <li>Model inference and audio generation and post-processing</li>
-                            </ul>
-                            <h4>Technologies:</h4>
-                            <div class="tech-tags">
-                                <span>Python</span>
-                                <span>PyTorch</span>
-                                <span>Streamlit</span>
-                                <span>librosa</span>
-                                <span>torchaudio</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Windmill10/ML_diffusion" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Spotify CLI</h3>
-                        <p class="project-date">Nov 2022 - Feb 2023</p>
-                        <p>A command-line interface for Spotify built from scratch in Rust, enabling efficient daily music management without leaving the terminal.</p>
-                        <div class="project-details">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Terminal-based Spotify client with search functionality</li>
-                                <li>OAuth token refresh mechanism for API integration</li>
-                                <li>Responsive terminal UI with async operations</li>
-                            </ul>
-                            <h4>Technologies:</h4>
-                            <div class="tech-tags">
-                                <span>Rust</span>
-                                <span>Spotify Web API</span>
-                                <span>Terminal UI</span>
-                                <span>OAuth</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Windmill10/Spotify_API_2" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Slapjack Card Game on FPGA</h3>
-                        <p class="project-date">Sep 2024 - Dec 2024</p>
-                        <p>Designed and implemented a digital version of the Slapjack card game on dual FPGA boards, demonstrating hardware design skills and real-time systems development.</p>
-                        <div class="project-details">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Multiplayer game on dual FPGA boards with custom protocols</li>
-                                <li>State machine architecture for game logic</li>
-                                <li>VGA controller and 8-bit music synthesizer</li>
-                            </ul>
-                            <h4>Technologies:</h4>
-                            <div class="tech-tags">
-                                <span>SystemVerilog HDL</span>
-                                <span>Xilinx Vivado</span>
-                                <span>Python</span>
-                                <span>FPGA</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Windmill10/HD_projects" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+          </div>
+          <div class="dumbbell" style="--a:7; --b:47">
+            <p class="row-label">Probability of the most common first token</p>
+            <div class="track" role="img" aria-label="0.07 for the base model, 0.47 after RL">
+              <span class="link"></span>
+              <span class="dot dot-a"><span class="val">0.07</span></span>
+              <span class="dot dot-b"><span class="val">0.47</span></span>
             </div>
+          </div>
+          <p class="legend"><span class="key key-a"></span>Base model<span class="key key-b"></span>After RL</p>
+          <figcaption>Both scales run from 0 to 1. One 1.5B model, one training run, judged by LLMs.</figcaption>
+        </figure>
+      </article>
+
+      <article class="entry has-fig" id="storage">
+        <div class="entry-body">
+          <h3>SSD-based KV-cache offloading for multi-agent LLM serving</h3>
+          <p class="meta"><span>NTHU syslab, advised by Prof. Yun-Chih Chen</span><span>Feb 2026 – present</span></p>
+          <p>In multi-agent LLM serving, KV cache that exceeds GPU memory is offloaded to SSDs, and because an SSD endures a limited number of writes, offloading shortens its life. I studied one month of real Claude Code and Codex traffic, 1,820 sessions and about 190,000 requests, and found that much of the KV cache written to the SSD is never read again. The dead data comes from prefixes invalidated when an agent compacts its context, from unfilled tail blocks that the next request rewrites, and from data left behind when a session ends.</p>
+          <p>I designed write-back DRAM staging, which holds new KV cache in memory so that a write can be cancelled once the data is known to be dead, and combined it with session-grouped placement on ZNS SSDs, which lets a session's data expire together. I was responsible for the problem characterization and most of the core method. My co-authors built the simulator and ran part of the experiments.</p>
         </div>
-    </section>
-    
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <h2>Achievements & Certifications</h2>
-            <div class="achievements-grid">
-                <div class="achievement-item">
-                    <i class="fas fa-award"></i>
-                    <h3>Academic Excellence</h3>
-                    <p>A+ in Introduction to Programming II and Competitive Programming</p>
-                    <p>A in Logic Design, Data Structures, Machine Learning</p>
-                </div>
-                
-                <div class="achievement-item">
-                    <i class="fas fa-certificate"></i>
-                    <h3>TOEIC 965</h3>
-                    <p>Test of English for International Communication</p>
-                    <p>Issued by ETS (2021)</p>
-                </div>
-                
-                <div class="achievement-item">
-                    <i class="fas fa-users"></i>
-                    <h3>Hackathons</h3>
-                    <p>HackMeiChu - Development Team (2025)</p>
-                    <p>DIGITIMES hackathon - Attendee (2025)</p>
-                </div>
-            </div>
+        <figure class="fig">
+          <p class="fig-title">System-level write amplification against unmodified LMCache</p>
+          <div class="meter">
+            <p class="row-label"><span>Single node</span><span class="num">29.2% lower</span></p>
+            <div class="bar" role="img" aria-label="70.8% of the LMCache baseline"><span style="width:70.8%"></span></div>
+          </div>
+          <div class="meter">
+            <p class="row-label"><span>Multi-node</span><span class="num">16.3% lower</span></p>
+            <div class="bar" role="img" aria-label="83.7% of the LMCache baseline"><span style="width:83.7%"></span></div>
+          </div>
+          <figcaption>The full bar is LMCache in the same setting. Trace-driven simulation on the recorded traffic.</figcaption>
+        </figure>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band" id="publication" aria-labelledby="h-publication">
+    <h2 id="h-publication">Publication</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Multi-Agent LLM Serving with SSD-Based KV-Cache Offloading</h3>
+          <p class="meta"><span>Yu-Chen Lee, Chih Yen Chen, Ming-Yi Kuo, Yun-Chih Chen</span></p>
+          <p><cite>ASP-DAC 2027</cite>, accepted regular paper.</p>
         </div>
-    </section>
-    
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:eason.yuchen.lee@gmail.com">eason.yuchen.lee@gmail.com</a></p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p><a href="tel:+886903719328">+886 903-719-328</a></p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <h3>GitHub</h3>
-                        <p><a href="https://github.com/Windmill10" target="_blank">github.com/Windmill10</a></p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <h3>LinkedIn</h3>
-                        <p><a href="https://linkedin.com/in/yuchen-lee-47a892356" target="_blank">linkedin.com/in/yuchen-lee-47a892356</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="experience" aria-labelledby="h-experience">
+    <h2 id="h-experience">Experience</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Microsoft</h3>
+          <p class="meta"><span>Software Engineer Intern, Azure Maps, Taipei</span><span>Sep 2026 – present</span></p>
+          <p>Full-stack bug fixes and feature work for Azure Maps in Microsoft Fabric.</p>
         </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 李聿宸 | All Rights Reserved</p>
-            <div class="social-links">
-                <a href="https://github.com/Windmill10" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yuchen-lee-47a892356" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Industrial Technology Research Institute</h3>
+          <p class="meta"><span>Research Intern, remote</span><span>Jul 2026 – present</span></p>
+          <p>I build a pipeline in which several coding agents coordinate software tasks through a GitHub Projects board, with human approval gates.</p>
         </div>
-    </footer>
-    
-    <script src="script.js"></script>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Neuinx</h3>
+          <p class="meta"><span>Frontend Developer, Hsinchu</span><span>Sep 2025 – present</span></p>
+          <p>I build exercise-analytics interfaces in React and TypeScript, with Three.js court visualizations and Recharts dashboards.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3>MeiChu Hackathon</h3>
+          <p class="meta"><span>Development team co-lead</span><span>Sep 2025 – Sep 2026</span></p>
+          <p>I co-led the team that built the event application and made its architecture decisions. About 300 people used it during the 2026 hackathon.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="education" aria-labelledby="h-education">
+    <h2 id="h-education">Education</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3>National Tsing Hua University</h3>
+          <p class="meta"><span>B.S. in Computer Science</span><span>Sep 2023 – Jul 2027, expected</span></p>
+          <p>GPA 4.01/4.30, class rank 8 of 59. Academic Excellence Award for Spring 2025, given to the top two students of the class that semester.</p>
+          <p>A+ in Operating Systems, Computer Architecture, Computer Networks, Database Systems, Deep Learning and Storage Systems.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contact</h2>
+    <div class="entries">
+      <p class="contact-mail"><a href="mailto:eason.yuchen.lee@gmail.com">eason.yuchen.lee@gmail.com</a></p>
+      <ul class="links">
+        <li><a href="Eason_Lee_Resume.pdf">Resume (PDF)</a></li>
+        <li><a href="https://github.com/Windmill10" rel="me">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/yuchen-lee-cs/" rel="me">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <p>Updated November 2026</p>
+</footer>
+
 </body>
 </html>
