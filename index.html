@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yuchen Lee (李聿宸)</title>
-<meta name="description" content="Yuchen Lee is a computer science senior at National Tsing Hua University working on diversity loss in LLMs trained with reinforcement learning and on storage systems for LLM serving.">
+<meta name="description" content="Yuchen Lee is a computer science senior at National Tsing Hua University. Research on LLM training and storage for LLM serving, software engineering intern at Microsoft.">
 <meta property="og:title" content="Yuchen Lee (李聿宸)">
-<meta property="og:description" content="Computer science senior at National Tsing Hua University. Research on diversity loss under reinforcement learning and on storage for LLM serving.">
+<meta property="og:description" content="Computer science senior at National Tsing Hua University. Research on LLM training and storage for LLM serving, software engineering intern at Microsoft.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://windmill10.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f2a8c'%3E%3Cpath d='M12 12V1.5l7 7z'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(90 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(180 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(270 12 12)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261118b">
 </head>
 <body>
 
@@ -32,8 +32,8 @@
     <nav aria-label="Sections">
       <ul>
         <li><a href="#research">Research</a></li>
-        <li><a href="#publication">Publication</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -44,12 +44,12 @@
 <main class="wrap">
 
   <div class="hero">
-    <p class="question q1">Why do language models trained with reinforcement learning lose the diversity of their outputs?</p>
-    <p class="question q2">And how should storage be built for the short-lived data that serving them produces?</p>
+    <p class="statement s1">I teach myself what I need,</p>
+    <p class="statement s2">and I build what I find missing.</p>
   </div>
 
   <div class="intro">
-    <p>I am Yuchen Lee, and I go by Eason. I am a senior in computer science at National Tsing Hua University in Hsinchu, Taiwan. I study the first question in Prof. Shan-Hung Wu's DATALAB. The second grew out of Prof. Yun-Chih Chen's storage systems class and became a first-author paper accepted at <span class="nb">ASP-DAC 2027</span>.</p>
+    <p>I am Yuchen (Eason) Lee, a senior in computer science at National Tsing Hua University in Hsinchu, Taiwan, where I study how large language models are trained and served. I have worked on two problems, the loss of output diversity when a model is trained with reinforcement learning and the wear that KV cache offloading places on SSDs, and the second led to a first-author paper accepted at <span class="nb">ASP-DAC 2027</span>. I am currently a software engineer intern on the Azure Maps team at Microsoft in Taipei.</p>
   </div>
 
   <section class="band" id="research" aria-labelledby="h-research">
@@ -60,8 +60,7 @@
         <div class="entry-body">
           <h3>Diversity loss under reinforcement learning</h3>
           <p class="meta"><span>NTHU DATALAB, advised by Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
-          <p>Our project aims to make LLMs write more engaging stories, and I am responsible for the RL part. My first attempt, a reward model trained on reader votes from Wattpad, performed no better than chance. An analysis showed that 89% of the variance in vote rate lay between stories, reflecting author, genre and popularity. I next asked why LLMs overuse certain words. Comparing checkpoints of OLMo-2 7B across its training stages, I found that this vocabulary is absent in the base model and enters with the supervised fine-tuning data.</p>
-          <p>I therefore trained the Qwen2.5-1.5B base model with RL on verifiable rewards from math, coding and instruction-following tasks alone, with no fine-tuning data and no reward for stories. The model learned to write valid stories, and an LLM judge rated them on par with the official Instruct model, but their openings became concentrated. To explain this I extended a known policy-gradient analysis. When a reward cannot distinguish between outputs that are equally correct, the output that is already more probable receives the larger update. The loss of diversity under RL is the problem I most want to work on.</p>
+          <p>I trained the Qwen2.5-1.5B base model with reinforcement learning on verifiable rewards alone, using math, coding and instruction-following tasks and no supervised fine-tuning data. Stories were never rewarded, yet the model learned to produce valid ones, and an LLM judge rated them on par with the official Instruct model. Their openings, however, became concentrated. To explain this, I extended a known policy-gradient analysis. When a reward cannot distinguish between outputs that are equally correct, the output that is already more probable receives the larger update.</p>
         </div>
         <figure class="fig">
           <p class="fig-title">Qwen2.5-1.5B base model, before and after RL</p>
@@ -90,8 +89,7 @@
         <div class="entry-body">
           <h3>SSD-based KV-cache offloading for multi-agent LLM serving</h3>
           <p class="meta"><span>NTHU syslab, advised by Prof. Yun-Chih Chen</span><span>Feb 2026 – present</span></p>
-          <p>In multi-agent LLM serving, KV cache that exceeds GPU memory is offloaded to SSDs, and because an SSD endures a limited number of writes, offloading shortens its life. I studied one month of real Claude Code and Codex traffic, 1,820 sessions and about 190,000 requests, and found that much of the KV cache written to the SSD is never read again. The dead data comes from prefixes invalidated when an agent compacts its context, from unfilled tail blocks that the next request rewrites, and from data left behind when a session ends.</p>
-          <p>I designed write-back DRAM staging, which holds new KV cache in memory so that a write can be cancelled once the data is known to be dead, and combined it with session-grouped placement on ZNS SSDs, which lets a session's data expire together. I was responsible for the problem characterization and most of the core method. My co-authors built the simulator and ran part of the experiments.</p>
+          <p>I studied multi-agent LLM serving, in which KV cache that exceeds GPU memory is offloaded to SSDs whose write endurance is limited. I analyzed one month of Claude Code and Codex traces and found that much of the offloaded KV cache is never read again. Based on this, I designed write-back DRAM staging, which cancels such writes before they reach the SSD, and session-grouped placement on ZNS SSDs, which lets a session's data expire together. The simulator and part of the experiments were built by my co-authors.</p>
         </div>
         <figure class="fig">
           <p class="fig-title">System-level write amplification against unmodified LMCache</p>
@@ -125,33 +123,114 @@
 
   <section class="band" id="experience" aria-labelledby="h-experience">
     <h2 id="h-experience">Experience</h2>
-    <div class="entries">
-      <article class="entry">
+    <div class="entries timeline">
+      <div class="axis" aria-hidden="true">
+        <span class="tick" style="left:0">2025</span>
+        <span class="tick" style="left:52.17%">2026</span>
+        <span class="tick tick-end">now</span>
+      </div>
+
+      <article class="entry role" style="--s:20; --e:23">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 23 23"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
+        </div>
         <div class="entry-body">
           <h3>Microsoft</h3>
           <p class="meta"><span>Software Engineer Intern, Azure Maps, Taipei</span><span>Sep 2026 – present</span></p>
-          <p>Full-stack bug fixes and feature work for Azure Maps in Microsoft Fabric.</p>
+          <p>I develop full-stack features for Azure Maps in Microsoft Fabric.</p>
         </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
       </article>
-      <article class="entry">
+
+      <article class="entry role" style="--s:18; --e:23">
+        <div class="logo logo-text" aria-hidden="true">ITRI</div>
         <div class="entry-body">
           <h3>Industrial Technology Research Institute</h3>
           <p class="meta"><span>Research Intern, remote</span><span>Jul 2026 – present</span></p>
-          <p>I build a pipeline in which several coding agents coordinate software tasks through a GitHub Projects board, with human approval gates.</p>
+          <p>I build a tool that coordinates multiple LLM agents for software development.</p>
         </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
       </article>
-      <article class="entry">
+
+      <article class="entry role" style="--s:13; --e:23">
+        <div class="logo logo-text" aria-hidden="true">NTHU</div>
+        <div class="entry-body">
+          <h3>NTHU syslab</h3>
+          <p class="meta"><span>Undergraduate Researcher, Prof. Yun-Chih Chen</span><span>Feb 2026 – present</span></p>
+          <p>I study the wear that KV cache offloading places on SSDs in LLM serving, as described under <a href="#storage">Research</a>.</p>
+        </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
+      </article>
+
+      <article class="entry role" style="--s:8; --e:23">
+        <div class="logo logo-text" aria-hidden="true">N</div>
         <div class="entry-body">
           <h3>Neuinx</h3>
           <p class="meta"><span>Frontend Developer, Hsinchu</span><span>Sep 2025 – present</span></p>
-          <p>I build exercise-analytics interfaces in React and TypeScript, with Three.js court visualizations and Recharts dashboards.</p>
+          <p>I develop exercise-analytics interfaces in React and TypeScript, including Three.js basketball-court visualizations and Recharts dashboards.</p>
+        </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
+      </article>
+
+      <article class="entry role" style="--s:4; --e:21">
+        <div class="logo" aria-hidden="true"><img src="assets/logos/meichu.png" alt="" width="160" height="160"></div>
+        <div class="entry-body">
+          <h3>MeiChu Hackathon</h3>
+          <p class="meta"><span>Development team, member then co-lead</span><span>May 2025 – Sep 2026</span></p>
+          <p>In 2025 I joined the development team of the hackathon, which is held jointly by NTHU and National Yang Ming Chiao Tung University, and the following year I co-led the team.</p>
+        </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
+      </article>
+
+      <article class="entry role" style="--s:2; --e:23">
+        <div class="logo logo-text" aria-hidden="true">NTHU</div>
+        <div class="entry-body">
+          <h3>NTHU DATALAB</h3>
+          <p class="meta"><span>Undergraduate Researcher, Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
+          <p>I study the loss of output diversity when a language model is trained with reinforcement learning, as described under <a href="#diversity">Research</a>.</p>
+        </div>
+        <div class="strip" aria-hidden="true"><span></span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band" id="projects" aria-labelledby="h-projects">
+    <h2 id="h-projects">Projects</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3><a href="https://github.com/Windmill10/NotifyAI">NotifyAI</a></h3>
+          <p class="meta"><span>Swift, macOS, MCP</span><span>2026</span></p>
+          <p>NotifyAI archives macOS notifications from selected applications in a local SQLite database and exposes them to AI agents through a read-only MCP server.</p>
         </div>
       </article>
       <article class="entry">
         <div class="entry-body">
-          <h3>MeiChu Hackathon</h3>
-          <p class="meta"><span>Development team co-lead</span><span>Sep 2025 – Sep 2026</span></p>
-          <p>I co-led the team that built the event application and made its architecture decisions. About 300 people used it during the 2026 hackathon.</p>
+          <h3>MeiChu Hackathon event application</h3>
+          <p class="meta"><span>React, FastAPI, PostgreSQL</span><span>2026</span></p>
+          <p>About 300 people relied on the application throughout the 2026 hackathon. I set up its framework, wrote its architecture document and most of its setup guide, and built its notification system.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3>3D shot map for inJOY</h3>
+          <p class="meta"><span>Three.js, React, at Neuinx</span><span>2025 – 2026</span></p>
+          <p>The original design showed the shooting zones of the court as a 2D diagram in Figma. I converted each zone into a 3D mesh, and the resulting visualization is now part of the inJOY basketball analysis application.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3><a href="https://github.com/Windmill10/Spotify_CLI_2">Spotify CLI</a></h3>
+          <p class="meta"><span>Rust</span><span>2022 – 2023</span></p>
+          <p>In my last year of high school I taught myself Rust and built a command-line Spotify client, which authenticates through OAuth with a local callback server and controls playback asynchronously with Tokio.</p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3><a href="https://github.com/Windmill10/ML_diffusion">Bird vocalization generation</a></h3>
+          <p class="meta"><span>PyTorch, group course project</span><span>2024</span></p>
+          <p>In a group project for a machine learning course, we trained a diffusion model to generate bird vocalizations on top of the audio-diffusion-pytorch framework. I worked on the data preprocessing and the training pipeline.</p>
         </div>
       </article>
     </div>
@@ -164,11 +243,38 @@
         <div class="entry-body">
           <h3>National Tsing Hua University</h3>
           <p class="meta"><span>B.S. in Computer Science</span><span>Sep 2023 – Jul 2027, expected</span></p>
-          <p>GPA 4.01/4.30, class rank 8 of 59. Academic Excellence Award for Spring 2025, given to the top two students of the class that semester.</p>
-          <p>A+ in Operating Systems, Computer Architecture, Computer Networks, Database Systems, Deep Learning and Storage Systems.</p>
+          <p>My cumulative GPA is 4.01/4.30, and I rank 8th in a class of 59. In Spring 2025 I received NTHU's Academic Excellence Award, which is given to the top two students of the class each semester. I earned an A+ in Operating Systems, Computer Architecture, Computer Networks, Database Systems, Deep Learning and Storage Systems.</p>
         </div>
       </article>
     </div>
+  </section>
+
+  <section class="band" id="teaching" aria-labelledby="h-teaching">
+    <h2 id="h-teaching">Teaching</h2>
+    <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3>NTHU AI Experience Camp</h3>
+          <p class="meta"><span>Lecturer, an introduction to Claude Code and LLMs</span><span>Jul 2026</span></p>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Private tutoring</h3>
+          <p class="meta"><span>Junior high school physical science</span><span>2024 – present</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band" id="skills" aria-labelledby="h-skills">
+    <h2 id="h-skills">Skills</h2>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>Python, Rust, C/C++, TypeScript, JavaScript</dd></div>
+      <div><dt>Systems and ML</dt><dd>vLLM, LMCache, PyTorch, HuggingFace</dd></div>
+      <div><dt>Frontend</dt><dd>React, Three.js, Recharts</dd></div>
+      <div><dt>Tools</dt><dd>Git, Linux</dd></div>
+    </dl>
   </section>
 
   <section class="band" id="contact" aria-labelledby="h-contact">
