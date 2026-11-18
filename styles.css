@@ -312,6 +312,14 @@ cite { font-style: italic; }
   }
 }
 
+/* Short fact lists */
+.facts {
+  list-style: disc;
+  padding-left: 1.1em;
+}
+.facts li + li { margin-top: 0.2rem; }
+.facts li::marker { color: var(--ink-2); }
+
 /* Skills */
 .skills {
   margin: 0;
