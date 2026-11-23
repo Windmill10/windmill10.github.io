@@ -102,34 +102,6 @@ a:focus-visible {
   font-weight: 400;
   color: var(--ink-2);
 }
-.mark {
-  width: 1.5em;
-  height: 1.5em;
-  margin: -0.3em 0.3rem -0.3em -0.2em;
-  vertical-align: -0.36em;
-  overflow: visible;
-}
-
-/* Pinwheel parts, shared by the header mark and the hero wheel */
-.sails {
-  fill: var(--accent);
-  stroke: var(--accent);
-  stroke-width: 0.7;
-  stroke-linejoin: round;
-}
-.flaps {
-  fill: var(--accent-soft);
-  stroke: var(--accent-soft);
-  stroke-width: 0.7;
-  stroke-linejoin: round;
-}
-.pin { fill: var(--warm); }
-.stick {
-  stroke: var(--ink-2);
-  stroke-width: 0.5;
-  stroke-linecap: round;
-}
-.rotor { will-change: transform; }
 .top nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -149,7 +121,7 @@ a:focus-visible {
   text-underline-offset: 0.45em;
 }
 
-/* Opening statement: two staggered lines, with the pinwheel beside them */
+/* Opening statement, set as two staggered lines */
 .hero {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -164,21 +136,8 @@ a:focus-visible {
   letter-spacing: -0.012em;
   text-wrap: balance;
 }
-.s1 { grid-column: 1 / span 8; grid-row: 1; }
-.s2 { grid-column: 3 / span 7; grid-row: 2; }
-.wheel {
-  grid-column: 10 / -1;
-  grid-row: 1 / span 2;
-  justify-self: end;
-  width: min(100%, 15rem);
-  /* the stick overflows below the square drawing area on purpose */
-}
-.wheel svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
+.s1 { grid-column: 1 / span 9; }
+.s2 { grid-column: 4 / span 9; }
 
 .intro {
   padding-left: calc(var(--label-w) + var(--gap));
@@ -190,19 +149,15 @@ a:focus-visible {
   line-height: 1.5;
 }
 
-/* One page-load moment: the lines rise in turn and the wheel catches a gust */
+/* One page-load moment: the opening lines rise in turn */
 @media (prefers-reduced-motion: no-preference) {
   .statement, .intro p {
     animation: rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   .s2 { animation-delay: 90ms; }
   .intro p { animation-delay: 200ms; }
-  .wheel { animation: wheel-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   @keyframes rise {
     from { opacity: 0; transform: translateY(0.5em); }
-  }
-  @keyframes wheel-in {
-    from { opacity: 0; transform: scale(0.85); }
   }
 }
 
@@ -555,14 +510,7 @@ cite { font-style: italic; }
   body { font-size: 1.0625rem; }
   .top { position: static; }
   html { scroll-padding-top: 1rem; }
-  .s1 { grid-column: 1 / span 9; align-self: center; }
-  .s2 { grid-column: 1 / -1; }
-  .wheel {
-    grid-row: 1;
-    width: 4.25rem;
-    margin-bottom: 0;
-  }
-  .stick { display: none; }
+  .s1, .s2 { grid-column: 1 / -1; }
   .intro p { font-size: 1.15rem; }
   .skills div { display: block; }
   .skills div + div { margin-top: 0.6rem; }
