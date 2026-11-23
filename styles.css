@@ -6,7 +6,7 @@
   --rule: #c4ced3;
   --accent: #5f2a8c;
   --accent-soft: #cbb8dc;
-  --warm: #b7791f;
+  --warm: #8a5a12;
 
   --serif: "Source Serif 4", "Songti TC", Georgia, serif;
   --sans: "Archivo", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
@@ -54,13 +54,13 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 ul { padding: 0; list-style: none; }
 
 a {
-  color: var(--accent);
+  color: var(--warm);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--warm);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -115,7 +115,7 @@ a:focus-visible {
 }
 .top nav a:hover { text-decoration: underline; }
 .top nav a[aria-current="true"] {
-  color: var(--accent);
+  color: var(--warm);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.45em;
@@ -168,6 +168,17 @@ a:focus-visible {
   column-gap: var(--gap);
   border-top: 1px solid var(--rule);
   padding-block: 2.25rem 3.5rem;
+  position: relative;
+}
+/* A short warm tab marks where each section starts */
+.band::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 2.25rem;
+  height: 3px;
+  background: var(--warm);
 }
 .band h2 {
   font-family: var(--sans);
@@ -210,7 +221,7 @@ a:focus-visible {
 .entry-body p + p:not(.meta) { margin-top: 0.85rem; }
 .meta + p { margin-top: 0; }
 .meta:last-child { margin-bottom: 0; }
-.entry h3 a { color: inherit; text-decoration-color: var(--accent); }
+.entry h3 a { color: inherit; text-decoration-color: var(--warm); }
 cite { font-style: italic; }
 
 /* Experience: logo, role, and a strip showing when on a shared time axis */
@@ -342,25 +353,6 @@ cite { font-style: italic; }
 .facts li + li { margin-top: 0.2rem; }
 .facts li::marker { color: var(--ink-2); }
 
-/* Skills */
-.skills {
-  margin: 0;
-  max-width: var(--prose-w);
-}
-.skills div {
-  display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
-  column-gap: 1rem;
-}
-.skills div + div { margin-top: 0.35rem; }
-.skills dt {
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  font-stretch: 92%;
-  line-height: 2;
-  color: var(--ink-2);
-}
-.skills dd { margin: 0; }
 
 /* Figures */
 .fig {
@@ -512,9 +504,6 @@ cite { font-style: italic; }
   html { scroll-padding-top: 1rem; }
   .s1, .s2 { grid-column: 1 / -1; }
   .intro p { font-size: 1.15rem; }
-  .skills div { display: block; }
-  .skills div + div { margin-top: 0.6rem; }
-  .skills dt { line-height: 1.5; }
   .intro { padding-left: 0; }
   .band {
     display: block;
