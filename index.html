@@ -9,11 +9,11 @@
 <meta property="og:description" content="Computer science senior at National Tsing Hua University. Research on LLM training and storage for LLM serving, software engineering intern at Microsoft.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://windmill10.github.io/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235f2a8c'%3E%3Cpath d='M12 12V1.5l7 7z'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(90 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(180 12 12)'/%3E%3Cpath d='M12 12V1.5l7 7z' transform='rotate(270 12 12)'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-11 -11 22 22'%3E%3Cg fill='%237a3fb0' stroke='%237a3fb0' stroke-width='.8' stroke-linejoin='round'%3E%3Cpath d='M0 0V-10H10Z'/%3E%3Cpath d='M0 0V-10H10Z' transform='rotate(90)'/%3E%3Cpath d='M0 0V-10H10Z' transform='rotate(180)'/%3E%3Cpath d='M0 0V-10H10Z' transform='rotate(270)'/%3E%3C/g%3E%3Ccircle r='1.7' fill='%23e9b872'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261118c">
+<link rel="stylesheet" href="styles.css?v=20261123b">
 </head>
 <body>
 
@@ -21,11 +21,14 @@
   <div class="wrap top-inner">
     <h1 class="name">
       <a href="#" aria-label="Yuchen Lee, back to top">
-        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path id="blade" d="M12 12V1.5l7 7z"/>
-          <use href="#blade" transform="rotate(90 12 12)"/>
-          <use href="#blade" transform="rotate(180 12 12)"/>
-          <use href="#blade" transform="rotate(270 12 12)"/>
+        <svg class="mark" viewBox="-15 -15 30 30" aria-hidden="true" focusable="false">
+          <g class="rotor sails">
+            <path id="sail" d="M0 0V-10H10Z"/>
+            <use href="#sail" transform="rotate(90)"/>
+            <use href="#sail" transform="rotate(180)"/>
+            <use href="#sail" transform="rotate(270)"/>
+          </g>
+          <circle class="pin" r="1.7"/>
         </svg>Yuchen Lee</a>
       <span class="name-zh" lang="zh-Hant">李聿宸</span>
     </h1>
@@ -46,6 +49,26 @@
   <div class="hero">
     <p class="statement s1">Hi, I'm Eason,</p>
     <p class="statement s2">a computer science senior at National Tsing Hua University.</p>
+    <div class="wheel" aria-hidden="true">
+      <svg viewBox="-15 -15 30 30" focusable="false">
+        <line class="stick" x1="0" y1="0" x2="1.4" y2="31"/>
+        <g class="rotor">
+          <g class="sails">
+            <use href="#sail"/>
+            <use href="#sail" transform="rotate(90)"/>
+            <use href="#sail" transform="rotate(180)"/>
+            <use href="#sail" transform="rotate(270)"/>
+          </g>
+          <g class="flaps">
+            <path id="flap" d="M0 0L5 -5L10 0Z"/>
+            <use href="#flap" transform="rotate(90)"/>
+            <use href="#flap" transform="rotate(180)"/>
+            <use href="#flap" transform="rotate(270)"/>
+          </g>
+        </g>
+        <circle class="pin" r="1.25"/>
+      </svg>
+    </div>
   </div>
 
   <div class="intro">
@@ -60,7 +83,7 @@
         <div class="entry-body">
           <h3>Diversity loss under reinforcement learning</h3>
           <p class="meta"><span>NTHU DATALAB, advised by Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
-          <p>I trained the Qwen2.5-1.5B base model with reinforcement learning on verifiable rewards alone, using math, coding and instruction-following tasks and no supervised fine-tuning data. Stories were never rewarded, yet the model learned to produce valid ones, and an LLM judge rated them on par with the official Instruct model. Their openings, however, became concentrated. To explain this, I extended a known policy-gradient analysis. When a reward cannot distinguish between outputs that are equally correct, the output that is already more probable receives the larger update.</p>
+          <p>I trained the Qwen2.5-1.5B base model with reinforcement learning on verifiable rewards alone, with no supervised fine-tuning data. The model learned to produce valid stories that an LLM judge rated on par with the official Instruct model, but their openings became concentrated. To explain this, I extended a known policy-gradient analysis.</p>
         </div>
         <figure class="fig">
           <p class="fig-title">Qwen2.5-1.5B base model, before and after RL</p>
@@ -89,7 +112,7 @@
         <div class="entry-body">
           <h3>SSD-based KV-cache offloading for multi-agent LLM serving</h3>
           <p class="meta"><span>NTHU syslab, advised by Prof. Yun-Chih Chen</span><span>Feb 2026 – present</span></p>
-          <p>I studied multi-agent LLM serving, in which KV cache that exceeds GPU memory is offloaded to SSDs whose write endurance is limited. I analyzed one month of Claude Code and Codex traces and found that much of the offloaded KV cache is never read again. Based on this, I designed write-back DRAM staging, which cancels such writes before they reach the SSD, and session-grouped placement on ZNS SSDs, which lets a session's data expire together. The simulator and part of the experiments were built by my co-authors.</p>
+          <p>When KV cache exceeds GPU memory it is offloaded to SSDs, whose write endurance is limited. In one month of Claude Code and Codex traces I found that much of the offloaded KV cache is never read again. I designed write-back DRAM staging, which cancels such writes before they reach the SSD, and session-grouped placement on ZNS SSDs. The simulator was built by my co-authors.</p>
         </div>
         <figure class="fig">
           <p class="fig-title">System-level write amplification against unmodified LMCache</p>
@@ -197,7 +220,7 @@
 
   <section class="band" id="projects" aria-labelledby="h-projects">
     <h2 id="h-projects">Projects</h2>
-    <div class="entries">
+    <div class="entries cols-2">
       <article class="entry">
         <div class="entry-body">
           <h3><a href="https://github.com/Windmill10/NotifyAI">NotifyAI</a></h3>
@@ -214,7 +237,7 @@
       </article>
       <article class="entry">
         <div class="entry-body">
-          <h3><a href="https://github.com/Windmill10/Spotify_CLI_2">Spotify CLI</a></h3>
+          <h3>Spotify CLI</h3>
           <p class="meta"><span>Rust</span><span>2022 – 2023</span></p>
           <p>A command-line Spotify client, built in my last year of high school while I taught myself Rust.</p>
         </div>
@@ -249,6 +272,13 @@
   <section class="band" id="teaching" aria-labelledby="h-teaching">
     <h2 id="h-teaching">Teaching</h2>
     <div class="entries">
+      <article class="entry">
+        <div class="entry-body">
+          <h3>Coral AI Camp</h3>
+          <p class="meta"><span>Founding member of the organizing team</span><span>Oct 2026 – present</span></p>
+          <p>A camp that teaches high school students how LLMs work and how to build with AI coding agents. I drafted the first version of the curriculum and set up the camp's website.</p>
+        </div>
+      </article>
       <article class="entry">
         <div class="entry-body">
           <h3>NTHU AI Experience Camp</h3>
@@ -291,6 +321,8 @@
 <footer class="wrap foot">
   <p>Updated November 2026</p>
 </footer>
+
+<script src="script.js?v=20261123a" defer></script>
 
 </body>
 </html>
