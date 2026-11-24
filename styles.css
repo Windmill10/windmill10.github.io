@@ -80,8 +80,8 @@ a:focus-visible {
   border-bottom: 1px solid var(--rule);
   font-family: var(--sans);
 }
-/* With a decoration layer, let it show through the bar */
-html[data-fx]:not([data-fx="none"]) .top {
+/* Let the aurora show through the bar */
+.js .top {
   background: color-mix(in srgb, var(--paper) 72%, transparent);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -184,9 +184,8 @@ html[data-fx]:not([data-fx="none"]) .top {
   }
 }
 
-/* Decorative layer behind the top of the page; script.js draws into it */
+/* Aurora layer behind the top of the page; script.js starts it */
 .fx {
-  display: none;
   position: absolute;
   inset: 0 0 auto 0;
   height: 46rem;
@@ -201,7 +200,6 @@ html[data-fx]:not([data-fx="none"]) .top {
   width: 100%;
   height: 100%;
 }
-html[data-fx]:not([data-fx="none"]) .fx { display: block; }
 main { position: relative; z-index: 1; }
 
 /* Sections: label in the left column, content on the right */
@@ -438,8 +436,8 @@ cite { font-style: italic; }
 .link {
   position: absolute;
   top: calc(var(--y) - 0.5px);
-  left: calc(var(--a) * 1%);
-  width: calc((var(--b) - var(--a)) * 1%);
+  left: calc(min(var(--a), var(--b)) * 1%);
+  width: calc((max(var(--a), var(--b)) - min(var(--a), var(--b))) * 1%);
   height: 2px;
   background: var(--accent-soft);
 }

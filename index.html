@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261123f">
-<script>(function(){var d=document.documentElement;d.classList.add("js");d.dataset.fx=new URLSearchParams(location.search).get("fx")||"none";})();</script>
+<link rel="stylesheet" href="styles.css?v=20261124a">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -57,28 +57,28 @@
         <div class="entry-body">
           <h3>Diversity loss under reinforcement learning</h3>
           <p class="meta"><span>NTHU DATALAB, advised by Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
-          <p>I trained the Qwen2.5-1.5B base model with reinforcement learning on verifiable rewards alone, with no supervised fine-tuning data. The model learned to produce valid stories that an LLM judge rated on par with the official Instruct model, but their openings became concentrated. To explain this, I extended a known policy-gradient analysis.</p>
+          <p>I found that reinforcement learning narrows the range of a model's outputs, and that the training objective itself drives this narrowing. When I trained a base model with RL on verifiable rewards alone, its stories converged on a small set of openings, and its mathematical solutions on fewer methods. I extended a known policy-gradient analysis to show that the drift is strongest while the model still makes errors, and I am developing this work into a paper for ACL 2027.</p>
         </div>
         <figure class="fig">
           <p class="fig-title">Qwen2.5-1.5B base model, before and after RL</p>
-          <div class="dumbbell" style="--a:12; --b:91">
-            <p class="row-label">Share of valid stories</p>
-            <div class="track" role="img" aria-label="12% for the base model, 91% after RL">
-              <span class="link"></span>
-              <span class="dot dot-a"><span class="val">12%</span></span>
-              <span class="dot dot-b"><span class="val">91%</span></span>
-            </div>
-          </div>
           <div class="dumbbell" style="--a:7; --b:47">
-            <p class="row-label">Probability of the most common first token</p>
-            <div class="track" role="img" aria-label="0.07 for the base model, 0.47 after RL">
+            <p class="row-label">Probability of the most common first token of a story</p>
+            <div class="track" role="img" aria-label="0.07 for the base model, 0.47 after RL, on a scale from 0 to 1">
               <span class="link"></span>
               <span class="dot dot-a"><span class="val">0.07</span></span>
               <span class="dot dot-b"><span class="val">0.47</span></span>
             </div>
           </div>
+          <div class="dumbbell" style="--a:92.2; --b:62.4">
+            <p class="row-label">Distinct solution methods per math problem</p>
+            <div class="track" role="img" aria-label="4.61 for the base model, 3.12 after RL, on a scale from 0 to 5">
+              <span class="link"></span>
+              <span class="dot dot-a"><span class="val">4.61</span></span>
+              <span class="dot dot-b"><span class="val">3.12</span></span>
+            </div>
+          </div>
           <p class="legend"><span class="key key-a"></span>Base model<span class="key key-b"></span>After RL</p>
-          <figcaption>Both scales run from 0 to 1. One 1.5B model, one training run, judged by LLMs.</figcaption>
+          <figcaption>The first scale runs from 0 to 1, the second from 0 to 5. One 1.5B model and one training run.</figcaption>
         </figure>
       </article>
 
@@ -211,13 +211,6 @@
       </article>
       <article class="entry">
         <div class="entry-body">
-          <h3>Spotify CLI</h3>
-          <p class="meta"><span>Rust</span><span>2022 – 2023</span></p>
-          <p>A command-line Spotify client, built in my last year of high school while I taught myself Rust.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <div class="entry-body">
           <h3><a href="https://github.com/Windmill10/ML_diffusion">Bird vocalization generation</a></h3>
           <p class="meta"><span>PyTorch, group course project</span><span>2024</span></p>
           <p>A diffusion model that generates bird vocalizations, built on the audio-diffusion-pytorch framework. I worked on the data preprocessing and the training pipeline.</p>
@@ -287,7 +280,7 @@
 </footer>
 
 <script src="aurora.js?v=20261123a" defer></script>
-<script src="script.js?v=20261123d" defer></script>
+<script src="script.js?v=20261124a" defer></script>
 
 </body>
 </html>
