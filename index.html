@@ -75,10 +75,10 @@
         <div class="entry-body">
           <h3>Diversity loss under reinforcement learning</h3>
           <p class="meta"><span>NTHU DATALAB, advised by Prof. Shan-Hung Wu</span><span>Mar 2025 – present</span></p>
-          <p>I am preparing a paper for ACL 2027 on why reinforcement learning (RL) makes a model's outputs less diverse. The problem is sharpest in creative writing, where many different responses are equally good. I derived how equal rewards for two correct answers still push a model toward the one it already prefers. On math, I found that as RL raised the model's accuracy, it came to solve problems in fewer distinct ways. I am now designing a training method that keeps those different ways of solving without costing accuracy.</p>
+          <p>I am preparing a paper for ACL 2027 on why reinforcement learning (RL) makes a model's outputs less diverse. The problem is sharpest in creative writing, where many different responses are equally good. I derived why RL steadily shifts a model toward the answer it already favors, even when an alternative answer earns the same reward. On math, I found that as RL raised the model's accuracy, it came to solve problems in fewer distinct ways. I am now designing a training method that keeps those different ways of solving without costing accuracy.</p>
         </div>
         <figure class="fig">
-          <p class="fig-title">Qwen2.5-1.5B base model, before and after RL</p>
+          <p class="fig-title">Before and after RL</p>
           <div class="dumbbell" style="--a:7; --b:47">
             <p class="row-label">Probability of the most common first token of a story</p>
             <div class="track" role="img" aria-label="0.07 for the base model, 0.47 after RL, on a scale from 0 to 1">
@@ -96,7 +96,7 @@
             </div>
           </div>
           <p class="legend"><span class="key key-a"></span>Base model<span class="key key-b"></span>After RL</p>
-          <figcaption>The first scale runs from 0 to 1, the second from 0 to 5. One 1.5B model and one training run.</figcaption>
+          <figcaption>The first scale runs from 0 to 1, the second from 0 to 5.</figcaption>
         </figure>
       </article>
 
@@ -104,19 +104,15 @@
         <div class="entry-body">
           <h3>SSD-based KV-cache offloading for multi-agent LLM serving</h3>
           <p class="meta"><span>NTHU syslab, advised by Prof. Yun-Chih Chen</span><span>Feb 2026 – present</span></p>
-          <p>When KV cache exceeds GPU memory it is offloaded to SSDs, whose write endurance is limited. In one month of Claude Code and Codex traces I found that much of the offloaded KV cache is never read again. I designed write-back DRAM staging, which cancels such writes before they reach the SSD, and session-grouped placement on ZNS SSDs. The simulator was built by my co-authors.</p>
+          <p>My ASP-DAC 2027 paper extends the life of the SSDs that hold offloaded KV cache by up to 1.4 times without losing a single read. SSDs tolerate only a limited number of writes, yet the KV cache offloaded to them is short-lived. Analyzing a month of Claude Code and Codex traffic, I found that nearly all of this cache is discarded soon after it is written. I designed a method that recognizes data that will not be read again and prevents the SSD from spending writes on it.</p>
         </div>
         <figure class="fig">
-          <p class="fig-title">System-level write amplification against unmodified LMCache</p>
+          <p class="fig-title">SSD write amplification compared with LMCache</p>
           <div class="meter">
-            <p class="row-label"><span>Single node</span><span class="num">29.2% lower</span></p>
+            <p class="row-label"><span>My method</span><span class="num">up to 29.2% lower</span></p>
             <div class="bar" role="img" aria-label="70.8% of the LMCache baseline"><span style="width:70.8%"></span></div>
           </div>
-          <div class="meter">
-            <p class="row-label"><span>Multi-node</span><span class="num">16.3% lower</span></p>
-            <div class="bar" role="img" aria-label="83.7% of the LMCache baseline"><span style="width:83.7%"></span></div>
-          </div>
-          <figcaption>The full bar is LMCache in the same setting. Trace-driven simulation on the recorded traffic.</figcaption>
+          <figcaption>The full bar is LMCache.</figcaption>
         </figure>
       </article>
 
@@ -162,7 +158,7 @@
         <div class="entry-body">
           <h3>Industrial Technology Research Institute</h3>
           <p class="meta"><span>Research Intern, remote</span><span>Jul 2026 – present</span></p>
-          <p>A tool that coordinates multiple LLM agents for software development.</p>
+          <p>A web and Discord platform for multiple users to collaborate with a shared team of AI coding agents.</p>
         </div>
         <div class="strip" aria-hidden="true"><span></span></div>
       </article>
@@ -180,9 +176,9 @@
       <article class="entry role" style="--s:8; --e:23">
         <div class="logo" aria-hidden="true"><img src="assets/logos/neuinx.png" alt="" width="160" height="146"></div>
         <div class="entry-body">
-          <h3>Neuinx</h3>
+          <h3>NeuinX</h3>
           <p class="meta"><span>Frontend Developer, Hsinchu</span><span>Sep 2025 – present</span></p>
-          <p>Exercise-analytics interfaces in React and TypeScript, with Three.js court visualizations.</p>
+          <p>An NTHU startup in AI basketball analytics: built the 3D shot heatmap in its inJOY app and React/TypeScript dashboards.</p>
         </div>
         <div class="strip" aria-hidden="true"><span></span></div>
       </article>
@@ -191,8 +187,8 @@
         <div class="logo" aria-hidden="true"><img src="assets/logos/meichu.png" alt="" width="160" height="160"></div>
         <div class="entry-body">
           <h3>MeiChu Hackathon</h3>
-          <p class="meta"><span>Development team, member then co-lead</span><span>May 2025 – Sep 2026</span></p>
-          <p>Joined the development team in 2025 and co-led it for the 2026 hackathon.</p>
+          <p class="meta"><span>Development team, member then technical lead</span><span>May 2025 – Sep 2026</span></p>
+          <p>Joined the development team in 2025 and led the architecture of the event app for the 2026 hackathon.</p>
         </div>
         <div class="strip" aria-hidden="true"><span></span></div>
       </article>
@@ -224,7 +220,7 @@
         <div class="entry-body">
           <h3>MeiChu Hackathon event application</h3>
           <p class="meta"><span>React, FastAPI, PostgreSQL</span><span>2026</span></p>
-          <p>About 300 people relied on the application throughout the 2026 hackathon. I set up its framework and built its notification system.</p>
+          <p>About 300 people relied on the application throughout the 2026 hackathon. I led its architecture and built its notification system.</p>
         </div>
       </article>
       <article class="entry">
